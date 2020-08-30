@@ -1,0 +1,17 @@
+# Grab node
+FROM node:alpine
+
+# set workdir
+WORKDIR /app
+
+# copy the package.json from React to Docker container
+COPY package.json /app
+
+# install dependencies
+RUN yarn install
+
+# copy the application to app
+COPY . /app
+
+# start the react application
+CMD ["yarn", "run", "start"]
